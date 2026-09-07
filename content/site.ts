@@ -79,13 +79,13 @@ export const bootSequence: BootLine[] = [
   {
     type: 'command',
     prompt: 'praise@portfolio ~ %',
-    text: 'git clone https://github.com/yourusername/portfolio.git',
+    text: 'git clone https://github.com/praisekeyz/portfoliov_v3.git',
   },
   { type: 'output', text: "Cloning into 'portfolio'... done." },
   {
     type: 'command',
     prompt: 'praise@portfolio ~ %',
-    text: 'cd portfolio && pnpm install',
+    text: 'cd portfoliov_v3 && pnpm install',
   },
   { type: 'output', text: 'Packages installed in 1.4s' },
   {
