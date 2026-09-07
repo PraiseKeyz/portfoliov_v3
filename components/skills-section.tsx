@@ -4,6 +4,7 @@ import { SkillCodeEditor } from '@/components/skills/skill-code-editor'
 import { SkillDataFlow } from '@/components/skills/skill-data-flow'
 import { SkillCollisionDock } from '@/components/skills/skill-collision-dock'
 import { SkillPipeline } from '@/components/skills/skill-pipeline'
+import { SkillTicker } from '@/components/skills/skill-ticker'
 import { skills } from '@/content/site'
 import type { SkillAnimation } from '@/content/site'
 
@@ -54,6 +55,8 @@ export function SkillsSection() {
                       {category.description}
                     </p>
                   </div>
+
+                  <SkillTicker items={category.items} />
                 </div>
               </article>
             </Reveal>

@@ -162,6 +162,12 @@ a {
   will-change: transform;
 }
 
+.skill-ticker-track {
+  width: max-content;
+  animation: skill-ticker-scroll 20s linear infinite;
+  will-change: transform;
+}
+
 .code-rain-line span {
   display: inline-block;
   width: 28px;
@@ -334,6 +340,15 @@ a {
   }
 }
 
+@keyframes skill-ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes pulse-dot {
   0%,
   100% {
@@ -347,6 +362,16 @@ a {
 @media (max-width: 767px) {
   .code-rain {
     font-size: 10px;
+  }
+
+  .code-rain-column:nth-child(n + 3) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .code-rain-column:nth-child(n + 2) {
+    display: none;
   }
 }
 

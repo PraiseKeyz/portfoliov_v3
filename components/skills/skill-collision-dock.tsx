@@ -10,6 +10,7 @@ import type { SkillItem } from '@/content/site'
 const BALL_SIZE = 52
 const REPEL_RADIUS_SQUARED = 130 * 130
 const REPEL_STRENGTH = 0.06
+const TICKER_HEIGHT = 40
 
 function iconMarkup(icon: string) {
   const Icon = techIconMap[icon] ?? techIconMap.generic
@@ -48,9 +49,10 @@ export function SkillCollisionDock({ items }: { items: SkillItem[] }) {
       canvas.height = height
 
       const wallThickness = 100
+      const floorY = height - TICKER_HEIGHT
       const walls = [
         Bodies.rectangle(width / 2, -wallThickness / 2, width, wallThickness, { isStatic: true }),
-        Bodies.rectangle(width / 2, height + wallThickness / 2, width, wallThickness, { isStatic: true }),
+        Bodies.rectangle(width / 2, floorY + wallThickness / 2, width, wallThickness, { isStatic: true }),
         Bodies.rectangle(-wallThickness / 2, height / 2, wallThickness, height, { isStatic: true }),
         Bodies.rectangle(width + wallThickness / 2, height / 2, wallThickness, height, { isStatic: true }),
       ]
@@ -101,7 +103,7 @@ export function SkillCollisionDock({ items }: { items: SkillItem[] }) {
       Composite.add(world, mouseConstraint)
 
       const pitX = width / 2
-      const pitY = height - BALL_SIZE
+      const pitY = floorY - BALL_SIZE
       const invH = 1 / height
       const force = { x: 0, y: 0 }
 
@@ -198,7 +200,7 @@ export function SkillCollisionDock({ items }: { items: SkillItem[] }) {
 
   return (
     <div ref={containerRef} className="relative h-full w-full overflow-hidden">
-      <div ref={layerRef} className="absolute inset-0 z-10" />
+      <div ref={layerRef} className="pointer-events-none absolute inset-0" />
       <canvas ref={canvasRef} className="absolute inset-0 size-full" />
     </div>
   )
