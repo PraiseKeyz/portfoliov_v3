@@ -1,6 +1,5 @@
 import { ExternalLink } from 'lucide-react'
 
-import { GithubIcon } from '@/components/icons'
 import { ProjectVisual } from '@/components/project-visual'
 import { Reveal } from '@/components/reveal'
 import { projects } from '@/content/site'
@@ -31,17 +30,6 @@ export function ProjectsSection() {
                   <p className="mt-1 font-mono text-[11px] text-muted-foreground">{project.year}</p>
                 </div>
                 <div className="flex items-center gap-3 pt-1.5">
-                  {project.repoHref && (
-                    <a
-                      href={project.repoHref}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${project.title} source code`}
-                      className="text-muted-foreground transition-colors hover:text-primary"
-                    >
-                      <GithubIcon className="size-[18px]" />
-                    </a>
-                  )}
                   {project.liveHref && (
                     <a
                       href={project.liveHref}
