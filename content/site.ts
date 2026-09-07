@@ -150,6 +150,26 @@ export const skills: SkillCategory[] = [
 ]
 
 export const projects: Project[] = [
+    {
+    id: 'gps360-academy',
+    title: 'GPS360 Academy',
+    year: 'Personal project',
+    description:
+      'An e-learning platform with course management, progress tracking, interactive quizzes, and Stripe-powered course enrollment.',
+    tags: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Stripe'],
+    liveHref: 'https://gps360academy.com',
+    repoHref: '#',
+  },
+    {
+    id: 'layer3-cloud',
+    title: 'Layer3 Cloud',
+    year: 'Personal project',
+    description:
+      'The full marketing website for a Nigerian cloud infrastructure company, designed and built for clean UI, performance, and responsive design.',
+    tags: ['Next.js', 'Tailwind CSS'],
+    liveHref: 'https://layer3.cloud',
+    repoHref: '#',
+  },
   {
     id: 'myfithub',
     title: 'MyFitHub',
@@ -157,17 +177,6 @@ export const projects: Project[] = [
     description:
       'A fitness subscription platform connecting users to gyms, yoga, swimming, boxing, and wellness centers across Nigeria — architected the backend from the ground up, including a full Paystack subscription flow and a multi-vendor venue management system now serving 100+ active users and 15+ partner venues.',
     tags: ['Node.js', 'TypeScript', 'PostgreSQL', 'Paystack'],
-    liveHref: '#',
-    repoHref: '#',
-    featured: true,
-  },
-  {
-    id: 'makeatask',
-    title: 'Makeatask',
-    year: '2025',
-    description:
-      'A two-sided marketplace for on-demand services — led backend architecture, integrated the Dojah KYC verification pipeline for onboarding, and built the APIs behind bidding and service delivery, processing 200+ task and bid events monthly.',
-    tags: ['Node.js', 'TypeScript', 'PostgreSQL', 'Dojah KYC'],
     liveHref: '#',
     repoHref: '#',
     featured: true,
@@ -189,27 +198,7 @@ export const projects: Project[] = [
     description:
       'A virtual top-up platform for airtime, data bundles, and utility bill payments, with a responsive React frontend and a REST API handling real-time transaction processing.',
     tags: ['React', 'Node.js', 'Express', 'MongoDB'],
-    liveHref: '#',
-    repoHref: '#',
-  },
-  {
-    id: 'gps360-academy',
-    title: 'GPS360 Academy',
-    year: 'Personal project',
-    description:
-      'An e-learning platform with course management, progress tracking, interactive quizzes, and Stripe-powered course enrollment.',
-    tags: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Stripe'],
-    liveHref: '#',
-    repoHref: '#',
-  },
-  {
-    id: 'layer3-cloud',
-    title: 'Layer3 Cloud',
-    year: 'Personal project',
-    description:
-      'The full marketing website for a Nigerian cloud infrastructure company, designed and built for clean UI, performance, and responsive design.',
-    tags: ['Next.js', 'Tailwind CSS'],
-    liveHref: '#',
+    liveHref: 'https://pay-sub.vercel.app',
     repoHref: '#',
   },
 ]
