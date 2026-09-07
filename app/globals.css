@@ -175,6 +175,156 @@ a {
   background-size: 22px 22px;
 }
 
+.skill-type-line {
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+  animation: skill-type-reveal 6s steps(20, end) infinite;
+}
+
+.skill-cursor-blink {
+  animation: skill-cursor-blink 1s steps(2) infinite;
+}
+
+.skill-block-in {
+  animation: skill-block-in 6s ease-in-out infinite;
+}
+
+.skill-node-pulse {
+  animation: skill-dot-travel 5.4s ease-in-out infinite;
+}
+
+.skill-node-highlight {
+  animation: skill-node-highlight 5.4s ease-in-out infinite;
+}
+
+.skill-pipeline-badge {
+  animation: skill-pipeline-badge-complete 6s ease-in-out infinite;
+}
+
+.skill-pipeline-canvas {
+  background-color: var(--background);
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.skill-pipeline-check {
+  animation: skill-pipeline-check-in 6s ease-in-out infinite;
+}
+
+@keyframes skill-type-reveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  25% {
+    clip-path: inset(0 0% 0 0);
+  }
+  90% {
+    clip-path: inset(0 0% 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+@keyframes skill-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes skill-block-in {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+  }
+}
+
+@keyframes skill-dot-travel {
+  0% {
+    left: 8%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  45% {
+    left: 50%;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    left: 92%;
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    left: 8%;
+    opacity: 0;
+  }
+}
+
+@keyframes skill-node-highlight {
+  0%,
+  100% {
+    border-color: var(--border);
+    color: var(--muted-foreground);
+    box-shadow: none;
+  }
+  4%,
+  10% {
+    border-color: var(--primary);
+    color: var(--foreground);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--primary) 18%, transparent);
+  }
+  18% {
+    border-color: var(--border);
+    color: var(--muted-foreground);
+    box-shadow: none;
+  }
+}
+
+@keyframes skill-pipeline-badge-complete {
+  0%,
+  100% {
+    border-color: var(--border);
+    background: transparent;
+  }
+  8%,
+  90% {
+    border-color: var(--primary);
+    background: var(--primary);
+  }
+}
+
+@keyframes skill-pipeline-check-in {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  8%,
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes code-rain-drift {
   from {
     transform: translateY(0);

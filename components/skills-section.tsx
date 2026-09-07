@@ -1,13 +1,17 @@
-import { Code2, Layers, Server, TerminalSquare } from 'lucide-react'
-
 import { Reveal } from '@/components/reveal'
+import { SkillBrowserBuild } from '@/components/skills/skill-browser-build'
+import { SkillCodeEditor } from '@/components/skills/skill-code-editor'
+import { SkillDataFlow } from '@/components/skills/skill-data-flow'
+import { SkillCollisionDock } from '@/components/skills/skill-collision-dock'
+import { SkillPipeline } from '@/components/skills/skill-pipeline'
 import { skills } from '@/content/site'
+import type { SkillAnimation } from '@/content/site'
 
-const categoryIcons = {
-  code: Code2,
-  layers: Layers,
-  server: Server,
-  terminal: TerminalSquare,
+const animations: Record<SkillAnimation, () => React.JSX.Element> = {
+  editor: SkillCodeEditor,
+  browser: SkillBrowserBuild,
+  dataflow: SkillDataFlow,
+  pipeline: SkillPipeline,
 }
 
 export function SkillsSection() {
@@ -22,27 +26,36 @@ export function SkillsSection() {
         </div>
       </Reveal>
 
-      <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-14 flex flex-col gap-6">
         {skills.map((category, index) => {
-          const Icon = categoryIcons[category.icon]
+          const Animation = animations[category.animation]
+          const reversed = index % 2 === 1
+          const isPipeline = category.animation === 'pipeline'
+
           return (
             <Reveal key={category.title} delay={index * 80}>
-              <div className="h-full rounded-[10px] border border-border bg-surface p-6 transition-colors hover:border-primary/40">
-                <Icon className="size-5 text-primary" />
-                <h3 className="mt-5 font-display text-lg font-medium tracking-tight text-foreground">
-                  {category.title}
-                </h3>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {category.items.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-[4px] border border-border px-2.5 py-1 font-mono text-[11px] text-muted-foreground"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <article className="grid grid-cols-1 items-stretch overflow-hidden rounded-[14px] border border-border bg-surface lg:grid-cols-2">
+                <div
+                  className={`flex min-h-[320px] items-center justify-center overflow-hidden ${isPipeline ? '' : 'bg-background/40 p-8'} ${reversed ? 'lg:order-2' : ''}`}
+                >
+                  <Animation />
+                </div>
+
+                <div className="relative h-full min-h-[320px]">
+                  <div className="absolute inset-0">
+                    <SkillCollisionDock items={category.items} />
+                  </div>
+
+                  <div className="relative p-8 pointer-events-none md:p-10">
+                    <h3 className="font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
+                      {category.title}
+                    </h3>
+                    <p className="mt-4 font-mono text-[13px] leading-relaxed text-muted-foreground">
+                      {category.description}
+                    </p>
+                  </div>
+                </div>
+              </article>
             </Reveal>
           )
         })}

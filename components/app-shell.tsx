@@ -54,7 +54,7 @@ function BootGate({ children }: { children: ReactNode }) {
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
-    <ReactLenis root options={{ anchors: { offset: -100 }, duration: 2.8, easing: (t) => 1 - Math.pow(1 - t, 3) }}>
+    <ReactLenis root options={{ anchors: { offset: -100 }, duration: 1.8, }}>
       <CustomCursor />
       <BootGate>{children}</BootGate>
     </ReactLenis>

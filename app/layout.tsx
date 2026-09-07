@@ -1,14 +1,15 @@
 import { Analytics } from '@vercel/analytics/next'
 import { IBM_Plex_Mono, Space_Grotesk } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
+import { site } from '@/content/site'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
 const ibmPlexMono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-ibm-plex-mono' })
 
 export const metadata: Metadata = {
-  title: 'Praise Adebayo — Full-Stack Software Engineer',
-  description: 'Portfolio of Praise Adebayo, a full-stack software engineer building fast, thoughtful products with React, Next.js, and Node.js.',
+  title: `${site.name} — ${site.role}`,
+  description: site.description,
 }
 
 export const viewport: Viewport = {
