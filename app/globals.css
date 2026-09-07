@@ -1,0 +1,297 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import 'lenis/dist/lenis.css';
+
+:root {
+  --radius: 0.625rem;
+
+  --background: #0a0a0b;
+  --foreground: #f3f3f1;
+
+  --surface: #111214;
+  --border: #232428;
+
+  --primary: #e9a63c;
+  --primary-foreground: #120c02;
+
+  --secondary: #17181b;
+  --secondary-foreground: #f3f3f1;
+
+  --muted: #17181b;
+  --muted-foreground: #8b8c92;
+
+  --accent: #17181b;
+  --accent-foreground: #f3f3f1;
+
+  --destructive: #e5484d;
+  --destructive-foreground: #fff2f2;
+
+  --input: #232428;
+  --ring: color-mix(in oklab, var(--primary) 55%, transparent);
+}
+
+@theme inline {
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
+  --font-display: var(--font-space-grotesk), sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono);
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--primary) 35%, transparent);
+  color: var(--foreground);
+}
+
+.section-shell {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 6.5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    padding: 8rem 2.5rem;
+  }
+}
+
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--primary);
+  box-shadow: 0 0 10px color-mix(in oklab, var(--primary) 70%, transparent);
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+.hero-overlay {
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, var(--background) 0%, transparent 22%, transparent 72%, var(--background) 100%),
+    linear-gradient(90deg, var(--background) 4%, transparent 34%);
+}
+
+.code-rain {
+  position: absolute;
+  inset: -14% 0;
+  z-index: 0;
+  display: flex;
+  gap: 3.5rem;
+  width: 100%;
+  padding: 0 2rem;
+  color: color-mix(in oklab, var(--foreground) 30%, var(--background));
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.95;
+  opacity: 0.75;
+  transform: perspective(700px) rotateX(9deg);
+  white-space: pre;
+}
+
+.code-rain-column {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.code-rain-track {
+  animation: code-rain-drift 120s linear infinite;
+  will-change: transform;
+}
+
+.code-rain-line span {
+  display: inline-block;
+  width: 28px;
+  margin-right: 16px;
+  color: color-mix(in oklab, var(--primary) 45%, var(--background));
+}
+
+.project-visual-grid {
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+@keyframes code-rain-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 767px) {
+  .code-rain {
+    font-size: 10px;
+  }
+}
+
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+html.custom-cursor-active input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+html.custom-cursor-active textarea,
+html.custom-cursor-active [contenteditable='true'] {
+  cursor: text !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 8px;
+  height: 18px;
+  background: var(--primary);
+  border-radius: 1px;
+  transform: translate(-50%, -50%);
+  transition:
+    width 150ms ease,
+    height 150ms ease,
+    border-radius 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 120ms ease,
+    opacity 120ms ease;
+}
+
+.custom-cursor.is-interactive .custom-cursor-shape {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  box-shadow: 0 0 18px color-mix(in oklab, var(--primary) 45%, transparent);
+}
+
+.custom-cursor.is-interactive.is-on-primary .custom-cursor-shape {
+  border-color: #ffffff;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.55);
+}
+
+.custom-cursor.is-active .custom-cursor-shape {
+  transform: translate(-50%, -50%) scale(0.72);
+}
+
+.custom-cursor.is-text .custom-cursor-shape {
+  opacity: 0;
+}
+
+.cursor-trail {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cursor-particle {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  opacity: 0.9;
+  animation-name: cursor-particle-fade;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes cursor-particle-fade {
+  to {
+    transform: translate(calc(-50% + var(--drift-x)), calc(-50% - 34px)) rotate(var(--drift-rotate));
+    opacity: 0;
+  }
+}
