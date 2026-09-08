@@ -149,31 +149,40 @@ export const skills: SkillCategory[] = [
 ]
 
 export const projects: Project[] = [
+  {
+    id: 'boxxcentral',
+    title: 'BoxxCentral',
+    year: '2026',
+    description:
+      'An umbrella platform for a Nigerian entertainment complex — FilmBoxx private cinema, GymBoxx, BowlBoxx, and a lounge — with Flutterwave-powered cinema bookings, and role-based admin tooling behind cookie-based JWT auth with refresh-token rotation.',
+    tags: ['Next.js', 'NestJS', 'MongoDB', 'TypeScript', 'Flutterwave'],
+    liveHref: 'https://boxxcentral.com',
+  },
     {
     id: 'gps360-academy',
     title: 'GPS360 Academy',
-    year: 'Personal project',
+    year: '2025',
     description:
       'An e-learning platform with course management, progress tracking, interactive quizzes, and Stripe-powered course enrollment.',
     tags: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Stripe'],
     liveHref: 'https://gps360academy.com',  },
     {
-    id: 'layer3-cloud',
-    title: 'Layer3 Cloud',
-    year: 'Personal project',
-    description:
-      'The full marketing website for a Nigerian cloud infrastructure company, designed and built for clean UI, performance, and responsive design.',
-    tags: ['Next.js', 'Tailwind CSS'],
-    liveHref: 'https://layer3.cloud',  },
-  {
     id: 'myfithub',
     title: 'MyFitHub',
     year: '2025',
     description:
       'A fitness subscription platform connecting users to gyms, yoga, swimming, boxing, and wellness centers across Nigeria — architected the backend from the ground up, including a full Paystack subscription flow and a multi-vendor venue management system now serving 100+ active users and 15+ partner venues.',
     tags: ['Node.js', 'TypeScript', 'PostgreSQL', 'Paystack'],
-    liveHref: '#',    featured: true,
+    liveHref: 'https://myfithub.life',    featured: true,
   },
+    {
+    id: 'layer3-cloud',
+    title: 'Layer3 Cloud',
+    year: '2025',
+    description:
+      'The full marketing website for a Nigerian cloud infrastructure company, designed and built for clean UI, performance, and responsive design.',
+    tags: ['Next.js', 'Tailwind CSS'],
+    liveHref: 'https://layer3.cloud',  },
   {
     id: 'dailydrip',
     title: 'DailyDrip',
@@ -181,7 +190,7 @@ export const projects: Project[] = [
     description:
       'A mobile-first personal finance app built around time-locked envelope budgeting — locked category budgets auto-disburse daily allowances through a scheduled job system, enforcing spending discipline. Leading full product design end to end, from UI/UX wireframes through backend architecture and frontend implementation.',
     tags: ['NestJS', 'Next.js', 'PostgreSQL', 'TypeScript'],
-    liveHref: '#',  },
+    liveHref: 'https://daily-drip-app.vercel.app',  },
   {
     id: 'paysub',
     title: 'PaySub',
